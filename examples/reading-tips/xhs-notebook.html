@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles/themes/notebook.css">
+<link rel="stylesheet" href="../../styles/base.css">
+<style>
+  .cover { padding: var(--pad); display: flex; flex-direction: column; justify-content: center; }
+  .sticker { align-self: flex-start; background: var(--accent); color: #fff; font-size: var(--fs-small); padding: 10px 28px;
+             border-radius: 999px; transform: rotate(-4deg); }
+  .cover h1 { font-size: var(--fs-hero); margin-top: 56px; line-height: 1.25; }
+  .circle { position: relative; display: inline-block; }
+  .circle svg { position: absolute; left: -28px; top: -14px; width: calc(100% + 56px); height: calc(100% + 28px); overflow: visible; }
+  .cover .note { margin-top: 80px; font-size: var(--fs-h2); color: var(--muted); }
+  .cover .note .mark { color: var(--fg); }
+
+  .cards { padding: var(--pad); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; grid-template-rows: auto 1fr 1fr; }
+  .cards h2 { grid-column: 1 / -1; font-size: var(--fs-h1); margin-bottom: 8px; }
+  .card { background: #fff; border-radius: var(--radius); padding: 44px 40px; box-shadow: 0 6px 0 var(--line); display: flex; flex-direction: column; justify-content: center; }
+  .card:nth-child(2) { transform: rotate(-1.5deg); }
+  .card:nth-child(3) { transform: rotate(1.2deg); }
+  .card:nth-child(4) { transform: rotate(1deg); }
+  .card:nth-child(5) { transform: rotate(-1.2deg); }
+  .card .n { font-size: 64px; color: var(--accent); font-weight: 700; }
+  .card b { display: block; font-size: 48px; margin: 12px 0 18px; line-height: 1.3; }
+  .card p { font-size: 34px; color: var(--muted); line-height: 1.5; }
+</style></head>
+<body data-size="xhs">
+  <section class="page cover">
+    <div class="sticker">读书笔记 ✎</div>
+    <h1>读完就<span class="circle">忘<svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M50 4 C82 2 98 30 96 52 C94 80 66 98 44 96 C16 94 2 70 4 46 C6 22 28 6 58 8" fill="none" stroke="#E8553D" stroke-width="3" stroke-linecap="round"/></svg></span>？<br>试试这 4 个方法</h1>
+    <p class="note">记住的不是你读过的，<br><span class="mark">是你用过的。</span></p>
+  </section>
+  <section class="page cards">
+    <h2>我自己在用的 4 招</h2>
+    <div class="card"><div class="n">①</div><b>先看目录</b><p>花 5 分钟搞清楚作者要回答什么问题。</p></div>
+    <div class="card"><div class="n">②</div><b>一章一句话</b><p>每章读完，用一句话写下它讲了什么。</p></div>
+    <div class="card"><div class="n">③</div><b>讲给别人听</b><p>24 小时内讲出来，卡住的地方就是没懂的地方。</p></div>
+    <div class="card"><div class="n">④</div><b>只用一个点</b><p>能改变你一个习惯，这本书就已经值了。</p></div>
+  </section>
+</body></html>

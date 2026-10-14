@@ -1,0 +1,30 @@
+/*
+ * clean · 干净商务
+ * 气质：理性、可信、信息密度高。适合干货、方法论、数据、职场。
+ * 做：大字号粗黑标题，细线分隔，大号数字做视觉锚点，大量留白，蓝色只用来强调一处。
+ * 不做：渐变、阴影堆叠、emoji 装饰、超过两种强调色。
+ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=block");
+
+:root {
+  --bg: #F6F5F1;
+  --fg: #16161A;
+  --muted: #6B6B73;
+  --line: #D9D7D0;
+  --accent: #2F5BFF;
+  --accent-soft: #E4EAFF;
+
+  --font-head: "Inter", "Noto Sans SC", "PingFang SC", sans-serif;
+  --font-body: "Inter", "Noto Sans SC", "PingFang SC", sans-serif;
+  --font-num: "Inter", sans-serif;
+  --fw-head: 900;
+
+  --fs-hero: 128px;   /* 封面主标题 */
+  --fs-h1: 84px;
+  --fs-h2: 56px;
+  --fs-body: 38px;    /* 正文下限 34px，手机上才看得清 */
+  --fs-small: 28px;
+
+  --pad: 96px;
+  --radius: 20px;
+}

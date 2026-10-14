@@ -1,0 +1,37 @@
+/*
+ * notebook · 手帐
+ * 气质：亲切、手写感、像朋友的笔记。适合生活经验、读书笔记、清单、情绪类内容。
+ * 做：米色纸张底 + 点阵，楷体，荧光笔高亮（.mark），手绘感的下划线和圈注（用 SVG），略微旋转的便签块。
+ * 不做：纯黑大色块、硬朗的几何图形、太规整的表格。
+ */
+@import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css");
+
+:root {
+  --bg: #FBF6EC;
+  --fg: #2B2620;
+  --muted: #8A7F72;
+  --line: #E6DCCB;
+  --accent: #E8553D;
+  --accent-2: #3D7BE8;
+  --highlight: #FFE36E;
+
+  --font-head: "LXGW WenKai", "Kaiti SC", serif;
+  --font-body: "LXGW WenKai", "Kaiti SC", serif;
+  --fw-head: 700;
+
+  --fs-hero: 120px;
+  --fs-h1: 80px;
+  --fs-h2: 56px;
+  --fs-body: 40px;
+  --fs-small: 30px;
+
+  --pad: 88px;
+  --radius: 14px;
+}
+
+.page {
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, #D9CDB8 2px, transparent 2.5px);
+  background-size: 36px 36px;
+}
+.mark { background: linear-gradient(transparent 55%, var(--highlight) 55%, var(--highlight) 92%, transparent 92%); padding: 0 .1em; }

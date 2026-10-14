@@ -1,0 +1,45 @@
+/* 所有帖子共用的底层样式。主题只改 styles/themes/ 下的变量，不改这里。 */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: #777; }
+body { width: var(--w, 1080px); }
+
+.page {
+  position: relative;
+  width: var(--w, 1080px);
+  height: var(--h, 1440px);
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* 中文排版：标点不出现在行首，避免孤字 */
+  line-break: strict;
+  text-wrap: pretty;
+  font-kerning: normal;
+}
+
+/* 9:16 平台的安全内容区；文字放在 .safe 里就不会被按钮和文案遮住 */
+.safe {
+  position: absolute;
+  top: var(--safe-top, 0); right: var(--safe-right, 0);
+  bottom: var(--safe-bottom, 0); left: var(--safe-left, 0);
+}
+
+h1, h2, h3 { font-family: var(--font-head); font-weight: var(--fw-head, 900); line-height: 1.2; text-wrap: balance; }
+.balance { text-wrap: balance; }
+.num { font-family: var(--font-num, var(--font-head)); font-variant-numeric: tabular-nums; }
+
+/* 检查用：--guides 时标出被平台 UI 遮挡的区域 */
+body.guides .page::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 9999;
+  border-style: solid; border-color: rgba(255, 0, 60, .35);
+  border-width: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);
+}
+
+@media print {
+  html, body { background: none; }
+  .page { break-after: page; }
+}
