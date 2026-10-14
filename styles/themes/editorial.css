@@ -3,8 +3,9 @@
  * 气质：有态度、有质感、像杂志内页。适合观点、金句、故事、人物、深度长文拆页。
  * 做：深色底，衬线粗体大标题，金色细线和巨大的序号，大段留白，标题可以压到画布边缘。
  * 不做：圆角卡片、多彩配色、图标堆砌。
+ * 语言：<html lang> 写 zh/ja/ko 会自动换成对应语言的字体；法语等拉丁语言用 Playfair Display，直接支持重音符号。
  */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@400;600;900&display=block");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Serif+JP:wght@400;600;900&family=Noto+Serif+KR:wght@400;600;900&display=block");
 
 :root {
   --bg: #1B1A17;
@@ -26,4 +27,14 @@
 
   --pad: 100px;
   --radius: 0;
+}
+
+/* 多语言：:where() 让这里的优先级和上面的 :root 相同，帖子自己的 <style> 仍然能覆盖 */
+:root:where(:lang(ja)) {
+  --font-head: "Playfair Display", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-body: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+:root:where(:lang(ko)) {
+  --font-head: "Playfair Display", "Noto Serif KR", "AppleMyungjo", "Batang", serif;
+  --font-body: "Noto Serif KR", "AppleMyungjo", "Batang", serif;
 }

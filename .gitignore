@@ -4,3 +4,5 @@ out/
 CLAUDE.local.md
 .DS_Store
 AGENTS.override.md
+fonts/*
+!fonts/.gitkeep

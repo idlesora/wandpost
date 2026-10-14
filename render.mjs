@@ -6,15 +6,20 @@
 //
 // HTML 约定：<body data-size="xhs">，每一页是一个 <section class="page">。
 // 输出：同目录下 out/<html 文件名>/01.png, 02.png ...；--pdf 额外输出 out/<名>.pdf。
+// fonts/ 目录里的 .ttf .otf .woff .woff2 会自动注册：文件名就是 font-family 名，
+// 文件名末尾加 -粗细数字（如 MyFont-700.ttf）可指定字重，默认 400。
 // --guides 把安全区用红色半透明标出来，输出到 out/<名>-guides/，只用于检查，不要发布。
 
 import { chromium } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { localFontCss } from './fontlib.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const sizes = JSON.parse(await fs.readFile(path.join(root, 'sizes.json'), 'utf8'));
+
+const localFontCssText = await localFontCss();
 
 const args = process.argv.slice(2);
 const files = args.filter((a) => !a.startsWith('--'));
@@ -55,6 +60,7 @@ for (const file of files) {
   });
   const page = await context.newPage();
   await page.goto(pathToFileURL(abs).href, { waitUntil: 'networkidle' });
+  if (localFontCssText) await page.addStyleTag({ content: localFontCssText });
   await page.addStyleTag({
     content: `:root{--w:${size.w}px;--h:${size.h}px;--safe-top:${st}px;--safe-right:${sr}px;--safe-bottom:${sb}px;--safe-left:${sl}px}
 @page{size:${size.w}px ${size.h}px;margin:0}`,

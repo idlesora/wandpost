@@ -1,0 +1,423 @@
+{
+  "_说明": "推荐字体清单。family 是 CSS 里的名字；probe 是检测时额外尝试的别名（系统里可能叫另一个名字）；stack 是可以直接抄进 CSS 的完整字体栈，已带后备字体；themes 是这款字体适合的风格；get 是下载地址。node fonts.mjs 会检测用户的电脑上有哪些。 分组按语言：zh 中文、ja 日文、ko 韩文、en 英文。法语、西班牙语、德语等拉丁字母语言用 en 组，这些字体都支持重音符号。",
+  "zh": [
+    {
+      "family": "LXGW WenKai",
+      "label": "霞鹜文楷",
+      "role": "标题+正文",
+      "vibe": "手写楷体，亲切",
+      "themes": [
+        "notebook"
+      ],
+      "probe": [
+        "霞鹜文楷",
+        "LXGW WenKai GB"
+      ],
+      "stack": "\"LXGW WenKai\", \"Kaiti SC\", \"KaiTi\", serif",
+      "get": "https://github.com/lxgw/LxgwWenKai"
+    },
+    {
+      "family": "Source Han Serif SC",
+      "label": "思源宋体",
+      "role": "标题+正文",
+      "vibe": "典雅，杂志感",
+      "themes": [
+        "editorial"
+      ],
+      "probe": [
+        "Noto Serif SC",
+        "思源宋体"
+      ],
+      "stack": "\"Source Han Serif SC\", \"Noto Serif SC\", \"Songti SC\", serif",
+      "get": "https://github.com/adobe-fonts/source-han-serif"
+    },
+    {
+      "family": "Source Han Sans SC",
+      "label": "思源黑体",
+      "role": "标题+正文",
+      "vibe": "中性干净，百搭",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "Noto Sans SC",
+        "思源黑体"
+      ],
+      "stack": "\"Source Han Sans SC\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "get": "https://github.com/adobe-fonts/source-han-sans"
+    },
+    {
+      "family": "Smiley Sans",
+      "label": "得意黑",
+      "role": "标题",
+      "vibe": "斜体个性，封面抓眼",
+      "themes": [
+        "clean",
+        "notebook"
+      ],
+      "probe": [
+        "得意黑",
+        "SmileySans-Oblique"
+      ],
+      "stack": "\"Smiley Sans\", \"PingFang SC\", sans-serif",
+      "get": "https://github.com/atelier-anchor/smiley-sans"
+    },
+    {
+      "family": "Alibaba PuHuiTi 3.0",
+      "label": "阿里巴巴普惠体",
+      "role": "标题+正文",
+      "vibe": "现代商务，字重齐全",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "Alibaba PuHuiTi",
+        "阿里巴巴普惠体",
+        "AlibabaPuHuiTi-3-55-Regular"
+      ],
+      "stack": "\"Alibaba PuHuiTi 3.0\", \"PingFang SC\", sans-serif",
+      "get": "https://fonts.alibabagroup.com/"
+    },
+    {
+      "family": "HarmonyOS Sans SC",
+      "label": "鸿蒙黑体",
+      "role": "标题+正文",
+      "vibe": "清爽，数字好看",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "HarmonyOS Sans"
+      ],
+      "stack": "\"HarmonyOS Sans SC\", \"PingFang SC\", sans-serif",
+      "get": "https://developer.huawei.com/consumer/cn/design/resource/"
+    },
+    {
+      "family": "MiSans",
+      "label": "小米 MiSans",
+      "role": "标题+正文",
+      "vibe": "现代，圆润",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "MiSans VF"
+      ],
+      "stack": "\"MiSans\", \"PingFang SC\", sans-serif",
+      "get": "https://hyperos.mi.com/font"
+    },
+    {
+      "family": "PingFang SC",
+      "label": "苹方",
+      "role": "标题+正文",
+      "vibe": "macOS 系统黑体",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "苹方-简"
+      ],
+      "stack": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Songti SC",
+      "label": "宋体-简",
+      "role": "标题+正文",
+      "vibe": "macOS 系统宋体",
+      "themes": [
+        "editorial"
+      ],
+      "probe": [
+        "宋体-简"
+      ],
+      "stack": "\"Songti SC\", \"SimSun\", serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Kaiti SC",
+      "label": "楷体-简",
+      "role": "标题+正文",
+      "vibe": "macOS 系统楷体",
+      "themes": [
+        "notebook"
+      ],
+      "probe": [
+        "楷体-简",
+        "STKaiti"
+      ],
+      "stack": "\"Kaiti SC\", \"KaiTi\", serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Microsoft YaHei",
+      "label": "微软雅黑",
+      "role": "标题+正文",
+      "vibe": "Windows 系统黑体",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "微软雅黑"
+      ],
+      "stack": "\"Microsoft YaHei\", \"PingFang SC\", sans-serif",
+      "get": "Windows 自带"
+    }
+  ],
+  "ja": [
+    {
+      "family": "Noto Sans JP",
+      "label": "Noto Sans JP（思源黑体）",
+      "role": "标题+正文",
+      "vibe": "中性干净",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "Source Han Sans JP"
+      ],
+      "stack": "\"Inter\", \"Noto Sans JP\", \"Hiragino Sans\", \"Yu Gothic\", sans-serif",
+      "get": "https://fonts.google.com/noto/specimen/Noto+Sans+JP"
+    },
+    {
+      "family": "Noto Serif JP",
+      "label": "Noto Serif JP（思源明朝）",
+      "role": "标题+正文",
+      "vibe": "典雅，杂志感",
+      "themes": [
+        "editorial"
+      ],
+      "probe": [
+        "Source Han Serif JP"
+      ],
+      "stack": "\"Noto Serif JP\", \"Hiragino Mincho ProN\", \"Yu Mincho\", serif",
+      "get": "https://fonts.google.com/noto/specimen/Noto+Serif+JP"
+    },
+    {
+      "family": "Klee One",
+      "label": "Klee One",
+      "role": "标题+正文",
+      "vibe": "手写笔触，教科书楷体风",
+      "themes": [
+        "notebook"
+      ],
+      "probe": [],
+      "stack": "\"Klee One\", \"Hiragino Maru Gothic ProN\", \"Yu Gothic\", sans-serif",
+      "get": "https://fonts.google.com/specimen/Klee+One"
+    },
+    {
+      "family": "Zen Maru Gothic",
+      "label": "Zen Maru Gothic",
+      "role": "标题+正文",
+      "vibe": "圆润友好",
+      "themes": [
+        "clean",
+        "notebook"
+      ],
+      "probe": [],
+      "stack": "\"Zen Maru Gothic\", \"Hiragino Maru Gothic ProN\", sans-serif",
+      "get": "https://fonts.google.com/specimen/Zen+Maru+Gothic"
+    },
+    {
+      "family": "Hiragino Sans",
+      "label": "ヒラギノ角ゴ",
+      "role": "标题+正文",
+      "vibe": "macOS 系统黑体",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "ヒラギノ角ゴ ProN W3"
+      ],
+      "stack": "\"Hiragino Sans\", \"Yu Gothic\", \"Meiryo\", sans-serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Hiragino Mincho ProN",
+      "label": "ヒラギノ明朝",
+      "role": "标题+正文",
+      "vibe": "macOS 系统明朝",
+      "themes": [
+        "editorial"
+      ],
+      "probe": [
+        "ヒラギノ明朝 ProN"
+      ],
+      "stack": "\"Hiragino Mincho ProN\", \"Yu Mincho\", serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Yu Gothic",
+      "label": "游ゴシック",
+      "role": "标题+正文",
+      "vibe": "Windows、macOS 系统黑体",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "游ゴシック"
+      ],
+      "stack": "\"Yu Gothic\", \"Meiryo\", sans-serif",
+      "get": "Windows、macOS 自带"
+    }
+  ],
+  "ko": [
+    {
+      "family": "Pretendard",
+      "label": "Pretendard",
+      "role": "标题+正文",
+      "vibe": "韩国常用，现代中性",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "Pretendard Variable"
+      ],
+      "stack": "\"Pretendard\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+      "get": "https://github.com/orioncactus/pretendard"
+    },
+    {
+      "family": "Noto Sans KR",
+      "label": "Noto Sans KR",
+      "role": "标题+正文",
+      "vibe": "中性干净",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "Source Han Sans K"
+      ],
+      "stack": "\"Inter\", \"Noto Sans KR\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+      "get": "https://fonts.google.com/noto/specimen/Noto+Sans+KR"
+    },
+    {
+      "family": "Noto Serif KR",
+      "label": "Noto Serif KR",
+      "role": "标题+正文",
+      "vibe": "典雅，杂志感",
+      "themes": [
+        "editorial"
+      ],
+      "probe": [],
+      "stack": "\"Noto Serif KR\", \"AppleMyungjo\", \"Batang\", serif",
+      "get": "https://fonts.google.com/noto/specimen/Noto+Serif+KR"
+    },
+    {
+      "family": "Gaegu",
+      "label": "Gaegu",
+      "role": "标题",
+      "vibe": "手写，可爱（拉丁字母不分大小写，英文请配 Klee One）",
+      "themes": [
+        "notebook"
+      ],
+      "probe": [],
+      "stack": "\"Klee One\", \"Gaegu\", \"Apple SD Gothic Neo\", sans-serif",
+      "get": "https://fonts.google.com/specimen/Gaegu"
+    },
+    {
+      "family": "Apple SD Gothic Neo",
+      "label": "Apple SD 산돌고딕 Neo",
+      "role": "标题+正文",
+      "vibe": "macOS 系统黑体",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "Apple SD 산돌고딕 Neo"
+      ],
+      "stack": "\"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Malgun Gothic",
+      "label": "맑은 고딕",
+      "role": "标题+正文",
+      "vibe": "Windows 系统黑体",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "맑은 고딕"
+      ],
+      "stack": "\"Malgun Gothic\", \"Apple SD Gothic Neo\", sans-serif",
+      "get": "Windows 自带"
+    }
+  ],
+  "en": [
+    {
+      "family": "Inter",
+      "label": "Inter",
+      "role": "标题+正文",
+      "vibe": "中性现代，数字清晰",
+      "themes": [
+        "clean"
+      ],
+      "probe": [
+        "Inter Variable"
+      ],
+      "stack": "\"Inter\", \"Helvetica Neue\", sans-serif",
+      "get": "https://rsms.me/inter/"
+    },
+    {
+      "family": "Playfair Display",
+      "label": "Playfair Display",
+      "role": "标题",
+      "vibe": "高对比衬线，杂志大标题",
+      "themes": [
+        "editorial"
+      ],
+      "probe": [],
+      "stack": "\"Playfair Display\", Georgia, serif",
+      "get": "https://fonts.google.com/specimen/Playfair+Display"
+    },
+    {
+      "family": "Space Grotesk",
+      "label": "Space Grotesk",
+      "role": "标题+数字",
+      "vibe": "几何感，科技",
+      "themes": [
+        "clean"
+      ],
+      "probe": [],
+      "stack": "\"Space Grotesk\", \"Helvetica Neue\", sans-serif",
+      "get": "https://fonts.google.com/specimen/Space+Grotesk"
+    },
+    {
+      "family": "DM Serif Display",
+      "label": "DM Serif Display",
+      "role": "标题",
+      "vibe": "圆润衬线，温暖",
+      "themes": [
+        "editorial",
+        "notebook"
+      ],
+      "probe": [],
+      "stack": "\"DM Serif Display\", Georgia, serif",
+      "get": "https://fonts.google.com/specimen/DM+Serif+Display"
+    },
+    {
+      "family": "Caveat",
+      "label": "Caveat",
+      "role": "手写点缀",
+      "vibe": "英文手写，批注感",
+      "themes": [
+        "notebook"
+      ],
+      "probe": [],
+      "stack": "\"Caveat\", cursive",
+      "get": "https://fonts.google.com/specimen/Caveat"
+    },
+    {
+      "family": "JetBrains Mono",
+      "label": "JetBrains Mono",
+      "role": "代码、数字",
+      "vibe": "等宽，技术内容",
+      "themes": [
+        "clean"
+      ],
+      "probe": [],
+      "stack": "\"JetBrains Mono\", Menlo, monospace",
+      "get": "https://www.jetbrains.com/lp/mono/"
+    }
+  ]
+}

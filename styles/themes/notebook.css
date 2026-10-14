@@ -3,8 +3,10 @@
  * 气质：亲切、手写感、像朋友的笔记。适合生活经验、读书笔记、清单、情绪类内容。
  * 做：米色纸张底 + 点阵，楷体，荧光笔高亮（.mark），手绘感的下划线和圈注（用 SVG），略微旋转的便签块。
  * 不做：纯黑大色块、硬朗的几何图形、太规整的表格。
+ * 语言：<html lang> 写 zh/ja/ko 会自动换成对应语言的字体（日文 Klee One，韩文 Gaegu，夹在里面的英文仍用 Klee One，因为 Gaegu 的拉丁字母不分大小写）；法语等拉丁语言也用 Klee One，因为霞鹜文楷在线版的大写重音字母（É À）显示不对。
  */
 @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css");
+@import url("https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Gaegu:wght@400;700&display=block");
 
 :root {
   --bg: #FBF6EC;
@@ -35,3 +37,17 @@
   background-size: 36px 36px;
 }
 .mark { background: linear-gradient(transparent 55%, var(--highlight) 55%, var(--highlight) 92%, transparent 92%); padding: 0 .1em; }
+
+/* 多语言：:where() 让这里的优先级和上面的 :root 相同，帖子自己的 <style> 仍然能覆盖 */
+:root:where(:lang(ja)) {
+  --font-head: "Klee One", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Klee One", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+}
+:root:where(:lang(ko)) {
+  --font-head: "Klee One", "Gaegu", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-body: "Klee One", "Gaegu", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+:root:where(:lang(fr), :lang(es), :lang(de), :lang(pt), :lang(it)) {
+  --font-head: "Klee One", "LXGW WenKai", serif;
+  --font-body: "Klee One", "LXGW WenKai", serif;
+}

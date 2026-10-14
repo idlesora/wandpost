@@ -28,6 +28,9 @@ body { width: var(--w, 1080px); }
   bottom: var(--safe-bottom, 0); left: var(--safe-left, 0);
 }
 
+/* 韩文按词换行，不在词中间断开 */
+:lang(ko) { word-break: keep-all; }
+
 h1, h2, h3 { font-family: var(--font-head); font-weight: var(--fw-head, 900); line-height: 1.2; text-wrap: balance; }
 .balance { text-wrap: balance; }
 .num { font-family: var(--font-num, var(--font-head)); font-variant-numeric: tabular-nums; }

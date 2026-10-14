@@ -3,8 +3,9 @@
  * 气质：理性、可信、信息密度高。适合干货、方法论、数据、职场。
  * 做：大字号粗黑标题，细线分隔，大号数字做视觉锚点，大量留白，蓝色只用来强调一处。
  * 不做：渐变、阴影堆叠、emoji 装饰、超过两种强调色。
+ * 语言：<html lang> 写 zh/ja/ko 会自动换成对应语言的字体；法语等拉丁语言用 Inter，直接支持重音符号。
  */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=block");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=block");
 
 :root {
   --bg: #F6F5F1;
@@ -27,4 +28,14 @@
 
   --pad: 96px;
   --radius: 20px;
+}
+
+/* 多语言：:where() 让这里的优先级和上面的 :root 相同，帖子自己的 <style> 仍然能覆盖 */
+:root:where(:lang(ja)) {
+  --font-head: "Inter", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --font-body: "Inter", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+}
+:root:where(:lang(ko)) {
+  --font-head: "Inter", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-body: "Inter", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
