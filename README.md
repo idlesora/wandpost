@@ -20,12 +20,12 @@
 2. 把你想表达的任何文字内容，想发什么平台，喜欢什么感觉，发给 AI
 3. AI 会直接根据本项目配置，导出小红书、抖音、TikTok 和 X 对应尺寸的图片
 
-模版和样式：
+模板和样式：
 1. 没有固定模板，每次由 AI 根据内容现场设计版面
 2. 风格有三套：`clean` 干净商务，`notebook` 手帐笔记，`editorial` 杂志画报。不指定时 AI 按内容挑
 3. 尺寸：小红书 3:4，抖音图文 9:16 或 3:4，TikTok 9:16，X 横图 16:9 或竖图 4:5
-4. 语言：中文、日文、韩文、英文，以及法语、西语、德语等拉丁字母语言，HTML 的 `lang` 决定用哪套字体
-5. 字体：自带在线字体，开箱就能用。AI 排版前会检查你的电脑上有没有 `fonts.json` 里推荐的字体，有就优先用；想用自己的字体，放进 `fonts/` 即可
+4. 语言：中文、日文、韩文、英文，以及法语、西语、德语等，AI 会按内容语言自动选字体
+5. 字体：默认使用在线字体，渲染时需要联网。AI 会优先用你电脑上已有的合适字体。想用自己的字体，放进 `fonts/` 目录，文件名就是字体名
 
 <p>
   <img src="docs/images/xhs-notebook.png" width="49%">
@@ -38,10 +38,10 @@
 
 ## 快速开始
 
-需要 Node 18 以上，以及 Claude Code、Codex 或 Antigravity 中的任意一个。
+需要 Node 18 以上，以及 Claude Code、Codex 或 Antigravity 中的任意一个。渲染时要联网，因为字体从在线加载。
 
 ```bash
-git clone <this repo> postsmith && cd postsmith
+git clone https://github.com/idlesora/postsmith.git && cd postsmith
 npm install
 ```
 
