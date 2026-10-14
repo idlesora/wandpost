@@ -1,5 +1,15 @@
 # postsmith
 
+**postsmith 是开源的小红书图文生成器**，也能做抖音图文、TikTok 轮播图和 X 配图。把文案或想法发给 AI，它按内容现场设计排版，输出各平台尺寸的图片：小红书封面和轮播图、抖音图文、TikTok photo 轮播、X 竖图和横图。
+
+- 文字转图片：文案、笔记、干货、读书笔记都能直接排成图文，不用自己排版，也不用套模板
+- AI 排版：每次按内容设计版式，每一张图都不一样，支持封面标题、内页、结尾页和发布文案
+- 多平台多尺寸：小红书 3:4，抖音 9:16 和 3:4，TikTok 9:16，X 16:9 和 4:5
+- 多语言：中文、日文、韩文、英文，以及法语、西语、德语等
+- 配合 Claude Code、Codex 等 AI 编程工具使用，本地渲染成 PNG（也可导出 PDF）
+
+*Xiaohongshu (RedNote), Douyin, TikTok photo mode and X carousel image generator. Paste text, get social media images: an AI coding agent designs a fresh layout for each post and renders it to platform-sized PNGs.*
+
 为什么有这个项目：
 1. 不喜欢千篇一律的排版，希望每个内容都有自己的特色布局
 2. 不想学设计和排版
@@ -14,8 +24,8 @@
 1. 没有固定模板，每次由 AI 根据内容现场设计版面
 2. 风格有三套：`clean` 干净商务，`notebook` 手帐笔记，`editorial` 杂志画报。不指定时 AI 按内容挑
 3. 尺寸：小红书 3:4，抖音图文 9:16 或 3:4，TikTok 9:16，X 横图 16:9 或竖图 4:5
-
-Paste text, get social media images. An AI coding agent designs a fresh layout for each post and renders it to platform-sized PNGs.
+4. 语言：中文、日文、韩文、英文，以及法语、西语、德语等拉丁字母语言，HTML 的 `lang` 决定用哪套字体
+5. 字体：自带在线字体，开箱就能用。AI 排版前会检查你的电脑上有没有 `fonts.json` 里推荐的字体，有就优先用；想用自己的字体，放进 `fonts/` 即可
 
 <p>
   <img src="docs/images/xhs-notebook.png" width="49%">
