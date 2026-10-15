@@ -1,4 +1,4 @@
-# postsmith
+# wandpost
 
 用户把要发的文字发进来，你根据内容现场设计 HTML 版面，再渲染成各平台尺寸的图片。没有固定模板：每次都按内容决定版式，只有风格（`styles/themes/`）和尺寸（`sizes.json`）是固定的。
 

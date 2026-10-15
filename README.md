@@ -1,6 +1,6 @@
-# postsmith
+# wandpost
 
-**postsmith 是开源的小红书图文生成器**，也能做抖音图文、TikTok 轮播图和 X 配图。把文案或想法发给 AI，它按内容现场设计排版，输出各平台尺寸的图片：小红书封面和轮播图、抖音图文、TikTok photo 轮播、X 竖图和横图。
+**wandpost 是开源的小红书图文生成器**，也能做抖音图文、TikTok 轮播图和 X 配图。把文案或想法发给 AI，它按内容现场设计排版，输出各平台尺寸的图片：小红书封面和轮播图、抖音图文、TikTok photo 轮播、X 竖图和横图。
 
 - 文字转图片：文案、笔记、干货、读书笔记都能直接排成图文，不用自己排版，也不用套模板
 - AI 排版：每次按内容设计版式，每一张图都不一样，支持封面标题、内页、结尾页和发布文案
@@ -45,7 +45,7 @@
 需要 Node 18 以上，以及 Claude Code、Codex 或 Antigravity 中的任意一个。渲染时要联网，因为字体从在线加载。
 
 ```bash
-git clone https://github.com/idlesora/postsmith.git && cd postsmith
+git clone https://github.com/idlesora/wandpost.git && cd wandpost
 npm install
 ```
 

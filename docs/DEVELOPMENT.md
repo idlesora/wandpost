@@ -1,6 +1,6 @@
 # 开发指南
 
-给想改造、扩展或贡献 postsmith 的人。只想用的话，看 [README](../README.md) 就够了。
+给想改造、扩展或贡献 wandpost 的人。只想用的话，看 [README](../README.md) 就够了。
 
 改动框架时，哪些文档要一起更新，见 [CLAUDE.md](../CLAUDE.md) 里的"改框架时同步文档"一节。AI 助手改框架时也照这张表做。
 
