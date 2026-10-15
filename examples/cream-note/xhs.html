@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles/themes/cream-note.css">
+<link rel="stylesheet" href="../../styles/base.css">
+<style>
+  /* 标题字体：本机有圆体（macOS）就用，没有退回思源黑体 */
+  :root { --font-head: "Yuanti SC", "Noto Sans SC", "PingFang SC", sans-serif; --fw-head: 700; }
+  .pg { padding: 72px var(--pad) 88px; display: flex; flex-direction: column; }
+  .pg h2 { font-size: 80px; margin-top: 64px; }
+  .pg .body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .pg .body:has(.list) { justify-content: stretch; }
+  .pg .sticker { position: absolute; right: 72px; bottom: 72px; }
+
+  .cover { padding: var(--pad); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .cover h1 { font-size: var(--fs-hero); line-height: 1.3; }
+  .cover h1 .l { display: block; white-space: nowrap; }
+  .cover .circle { margin: 0 .22em; }
+  .cover .sub { margin-top: 72px; font-size: 54px; line-height: 1.5; }
+  .cover .sticker { position: absolute; right: 80px; bottom: 96px; }
+  .cover .meta { position: absolute; left: 72px; right: 72px; top: 72px; }
+
+  .list { flex: 1; display: flex; flex-direction: column; margin: 56px 0 200px; background: var(--paper); border-radius: var(--radius); padding: 0 56px; box-shadow: 0 8px 0 var(--line); }
+  .list .item { flex: 1; grid-template-columns: 210px 1fr; }
+  .list .item p { font-size: 44px; }
+  .list .pill { font-size: 40px; padding: 12px 34px; }
+  .item .pill { justify-self: start; }
+  .steps { display: flex; flex-direction: column; gap: 36px; }
+  .step { background: var(--paper); border-radius: var(--radius); padding: 34px 44px; box-shadow: 0 8px 0 var(--line); }
+  .step b { display: block; font-family: var(--font-head); font-size: 50px; }
+  .step span { font-size: 36px; color: var(--muted); }
+
+  .quote { padding: var(--pad); display: flex; flex-direction: column; justify-content: center; }
+  .quote p { font-family: var(--font-head); font-weight: 900; font-size: 104px; line-height: 1.4; }
+  .quote p .l { display: block; white-space: nowrap; }
+  .quote .circle { margin: 0 .22em; }
+</style></head>
+<body data-size="xhs">
+
+  <section class="page cover">
+    <div class="meta"><span>No. 01</span><span>Date: 10.14</span></div>
+    <h1>
+      <span class="l">收藏了一堆</span>
+      <span class="l">为什么更<span class="circle">焦虑<svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M50 4 C82 2 98 30 96 52 C94 80 66 98 44 96 C16 94 2 70 4 46 C6 22 28 6 58 8"/></svg></span>？</span>
+    </h1>
+    <p class="sub"><span class="mark">先给信息分层，再决定做不做</span></p>
+    <div class="sticker">😮‍💨</div>
+  </section>
+
+  <section class="page pg">
+    <div class="meta"><span>No. 02</span><span>Date: 10.14</span></div>
+    <h2>先给信息分<span class="mark">三层</span></h2>
+    <div class="body">
+      <div class="list">
+        <div class="item"><span class="pill red">官方</span><p>通知和公告，以它为准</p></div>
+        <div class="item"><span class="pill">经验</span><p>别人的做法，只当参考</p></div>
+        <div class="item"><span class="pill">传言</span><p>没有出处的转述，先放一边</p></div>
+      </div>
+    </div>
+    <div class="sticker">📌</div>
+  </section>
+
+  <section class="page pg">
+    <div class="meta"><span>No. 03</span><span>Date: 10.14</span></div>
+    <h2>每条信息只记<span class="mark">四件事</span></h2>
+    <div class="body">
+      <div class="steps">
+        <div class="step"><span class="no">1</span><div><b>来源</b><span>是谁说的</span></div></div>
+        <div class="step"><span class="no">2</span><div><b>日期</b><span>什么时候说的</span></div></div>
+        <div class="step"><span class="no">3</span><div><b>范围</b><span>适用于谁</span></div></div>
+        <div class="step"><span class="no">4</span><div><b>动作</b><span>我下一步做什么</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page quote">
+    <div class="meta" style="position:absolute;left:72px;right:72px;top:72px"><span>No. 04</span><span>Date: 10.14</span></div>
+    <p>
+      <span class="l">每一条信息</span>
+      <span class="l">都要能被</span>
+      <span class="l"><span class="circle">核对<svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M50 4 C82 2 98 30 96 52 C94 80 66 98 44 96 C16 94 2 70 4 46 C6 22 28 6 58 8"/></svg></span>才算数</span>
+    </p>
+    <div class="sticker" style="position:absolute;right:80px;bottom:96px">✅</div>
+  </section>
+
+</body></html>

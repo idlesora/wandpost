@@ -1,0 +1,85 @@
+/*
+ * blue-paper · 蓝纸大标题
+ * 气质：醒目、利落、像贴在墙上的一张白纸。适合职场、考试、方法论、清单、需要一眼抓住人的干货。
+ * 做：白纸（.sheet）放在浅蓝紫底上；封面用超粗蓝色大标题（.big）、黄色波浪下划线（.wave）、粉色标签（.tag）；封面纸张加撕角或折角（.sheet.fold）和黄色胶带（.tape）；内页用标签行（.item + .pill）：蓝紫胶囊标签、竖线、正文，行间细线分隔。
+ * 不做：多种强调色、手绘感装饰、段落式长文。强调只用蓝色和一处黄色；内页每页最多 4～5 行，每行 25 字以内。
+ * 字体：标题和标签用思源黑体 900，正文用思源黑体 500～700。站酷庆科黄油体（--font-display，只有一个字重，字形方正偏科技感）作为可选的封面大标题字体：在 .big 上加 class="qk" 即可。
+ * 语言：<html lang> 写 zh/ja/ko 会自动换成对应语言的字体；法语等拉丁语言用 Inter，直接支持重音符号。
+ */
+@import url("https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Sans+JP:wght@500;700;900&family=Noto+Sans+KR:wght@500;700;900&family=Inter:wght@500;700;900&display=block");
+
+:root {
+  --bg: #ECEFFF;
+  --fg: #1B1B2F;
+  --muted: #61617A;
+  --line: #D5D8F2;
+  --accent: #3F5FD0;        /* 蓝色大标题、强调 */
+  --accent-2: #5A49A8;      /* 内页标签字的蓝紫 */
+  --accent-soft: #DCDBFA;   /* 内页标签底 */
+  --highlight: #FFD84D;     /* 黄色波浪线、胶带 */
+  --pink: #F1769F;          /* 封面标签 */
+
+  --font-head: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-display: "ZCOOL QingKe HuangYou", "Noto Sans SC", "PingFang SC", sans-serif;
+  --fw-head: 900;
+
+  --fs-hero: 196px;
+  --fs-h1: 92px;
+  --fs-h2: 60px;
+  --fs-body: 38px;
+  --fs-small: 28px;
+
+  --pad: 96px;
+  --radius: 36px;
+}
+
+/* 白纸：圆角边框是内页，加 .fold 变成封面的折角纸 */
+.sheet { position: absolute; inset: 44px; background: #fff; border: 5px solid var(--accent-2); border-radius: var(--radius); overflow: hidden; }
+.sheet.fold { border: 4px solid var(--fg); border-radius: 6px; overflow: visible; }
+/* 折角：右下角被折起，三角形的底色要和 .page 的底色一致 */
+.sheet.fold::after { content: ""; position: absolute; right: -4px; bottom: -4px; width: 132px; height: 132px;
+  background: linear-gradient(135deg, #CBD1F4 0 calc(50% - 2px), var(--fg) calc(50% - 2px) 50%, var(--bg) 50%); }
+/* 黄色胶带 */
+.tape { position: absolute; width: 220px; height: 54px; background: rgba(255, 216, 77, .85); }
+/* 淡淡的横线，像横格纸；放在 .sheet 里面，铺满整页 */
+.ruled { background-image: repeating-linear-gradient(transparent 0 71px, #E6E8F8 71px 73px); }
+
+/* 封面超大标题：一行一个 span.line，设置 white-space: nowrap 控制断行 */
+.big { font-family: var(--font-head); font-weight: var(--fw-head); color: var(--accent); font-size: var(--fs-hero); line-height: 1.12; letter-spacing: .01em; }
+.big.qk { font-family: var(--font-display); font-weight: 400; }
+/* 黄色波浪下划线，给副标题或标题里的词用 */
+.wave { text-decoration: underline wavy var(--highlight); text-decoration-thickness: 7px; text-underline-offset: .22em; text-decoration-skip-ink: none; }
+/* 粉色标签，如"新人必看" */
+.tag { display: inline-block; font-family: var(--font-head); font-weight: 900; font-size: 36px; line-height: 1.2; background: var(--pink); color: #fff; padding: 12px 40px; border-radius: 10px; }
+
+/* 标签胶囊 */
+.pill { display: inline-block; font-family: var(--font-head); font-weight: 900; font-size: 40px; line-height: 1.2; padding: 12px 30px; border-radius: 22px; background: var(--accent-soft); color: var(--accent-2); white-space: nowrap; text-align: center; }
+.pill.yellow { background: var(--highlight); color: var(--fg); }
+
+/* 标签行：标签胶囊 | 竖线 | 正文，行与行之间用细线分隔 */
+.item { display: grid; grid-template-columns: 190px 1fr; align-items: center; padding: 32px 0; border-top: 3px solid var(--line); }
+.item:first-child { border-top: 0; }
+.item > .pill { justify-self: start; }
+.item p { font-size: var(--fs-body); line-height: 1.5; border-left: 5px solid var(--accent-2); padding-left: 32px; }
+
+/* 对比标题条：A vs. B */
+.vs { display: inline-block; font-family: var(--font-head); font-weight: 900; font-size: 40px; padding: 10px 32px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-2); }
+
+/* 底部总结句：黄色荧光笔横线 */
+.sum { font-family: var(--font-head); font-weight: 900; font-size: 42px; line-height: 1.5; background: linear-gradient(transparent 82%, var(--highlight) 82%, var(--highlight) 94%, transparent 94%); }
+
+/* 多语言：:where() 让这里的优先级和上面的 :root 相同，帖子自己的 <style> 仍然能覆盖 */
+:root:where(:lang(ja)) {
+  --font-head: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+}
+:root:where(:lang(ko)) {
+  --font-head: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+:root:where(:lang(fr), :lang(es), :lang(de), :lang(pt), :lang(it)) {
+  --font-head: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --fw-head: 900;
+}

@@ -1,0 +1,76 @@
+/*
+ * cream-note · 奶油便签
+ * 气质：轻松、友好、像一张写给朋友的奶油色便签。适合生活经验、情绪表达、观点短句、清单、小技巧。
+ * 做：奶油色纸，粗黑体标题配楷体正文，每页一两句话；荧光笔（.mark）和红笔圈（.circle + 内联 SVG）各只用一处；右下角留一个表情贴纸位（.sticker）；内页用标签行（.item + .pill）或编号行。
+ * 不做：深色大色块、满屏装饰、超过两种强调色、段落式长文。正文页每页最多 4 条，每条 25 字以内。
+ * 页面骨架：.page 本身就是奶油色纸；顶部可放 .meta（No / Date 小字）；贴纸用 emoji 或内联 SVG 放进 .sticker。
+ * 语言：<html lang> 写 zh/ja/ko 会自动换成对应语言的字体（日文 Klee One，韩文 Gaegu）；法语等拉丁语言用 Klee One，因为霞鹜文楷在线版的大写重音字母（É À）显示不对。
+ */
+@import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700;900&family=Noto+Sans+JP:wght@700;900&family=Noto+Sans+KR:wght@700;900&family=Klee+One:wght@400;600&family=Gaegu:wght@400;700&display=block");
+
+:root {
+  --bg: #FFF8E7;
+  --fg: #26221D;
+  --muted: #8C8173;
+  --line: #EADFC6;
+  --accent: #E8466A;        /* 红笔圈、编号 */
+  --accent-2: #F3A712;      /* 贴纸、小装饰，用量很少 */
+  --highlight: #FFE066;     /* 荧光笔 */
+  --paper: #FFFDF5;         /* 卡片、标签的浅底 */
+
+  --font-head: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-body: "LXGW WenKai", "Kaiti SC", serif;
+  --fw-head: 900;
+
+  --fs-hero: 116px;
+  --fs-h1: 84px;
+  --fs-h2: 58px;
+  --fs-body: 40px;
+  --fs-small: 30px;
+
+  --pad: 88px;
+  --radius: 28px;
+}
+
+/* 荧光笔：标在关键词下半部分 */
+.mark { background: linear-gradient(transparent 52%, var(--highlight) 52%, var(--highlight) 94%, transparent 94%); padding: 0 .12em; }
+
+/* 红笔圈：在词外面包一层 .circle，里面放一个 viewBox="0 0 100 100" 的 <svg><path/></svg>，路径颜色由这里决定。
+   圈压到旁边的字时，给 .circle 左右加 margin: 0 .22em */
+.circle { position: relative; display: inline-block; }
+.circle svg { position: absolute; left: -.28em; top: -.16em; width: calc(100% + .56em); height: calc(100% + .32em); overflow: visible; }
+.circle svg path { fill: none; stroke: var(--accent); stroke-width: 3.5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+
+/* 表情贴纸位：里面放一个 emoji 或内联 SVG，放在页面右下角或标题旁 */
+.sticker { display: grid; place-items: center; width: 168px; height: 168px; border-radius: 50%; background: #FFE9A8; font-size: 104px; line-height: 1; transform: rotate(-8deg); box-shadow: 0 8px 0 rgba(38, 34, 29, .08); }
+
+/* 页面顶部的小字：No / Date，像便签抬头 */
+.meta { display: flex; justify-content: space-between; font-family: var(--font-body); font-size: 26px; color: var(--muted); letter-spacing: .04em; }
+
+/* 标签胶囊 */
+.pill { display: inline-block; font-family: var(--font-head); font-weight: 900; font-size: 34px; line-height: 1.2; padding: 10px 28px; border-radius: 999px; background: var(--highlight); color: var(--fg); white-space: nowrap; }
+.pill.red { background: var(--accent); color: #fff; }
+
+/* 标签行：左边标签，右边一段话，行与行之间用虚线分隔 */
+.item { display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: center; padding: 34px 0; border-top: 3px dashed var(--line); }
+.item:first-child { border-top: 0; }
+.item p { font-size: var(--fs-body); line-height: 1.55; }
+
+/* 编号行：大号序号加一句话 */
+.step { display: grid; grid-template-columns: 112px 1fr; gap: 24px; align-items: center; }
+.step .no { font-family: var(--font-head); font-weight: 900; font-size: 92px; line-height: 1; color: var(--accent); }
+
+/* 多语言：:where() 让这里的优先级和上面的 :root 相同，帖子自己的 <style> 仍然能覆盖 */
+:root:where(:lang(ja)) {
+  --font-head: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-body: "Klee One", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+}
+:root:where(:lang(ko)) {
+  --font-head: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-body: "Klee One", "Gaegu", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+:root:where(:lang(fr), :lang(es), :lang(de), :lang(pt), :lang(it)) {
+  --font-head: "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Klee One", "LXGW WenKai", serif;
+}

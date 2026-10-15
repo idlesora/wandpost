@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles/themes/blue-paper.css">
+<link rel="stylesheet" href="../../styles/base.css">
+<style>
+  .in { position: absolute; inset: 0; padding: 72px 64px 72px; display: flex; flex-direction: column; }
+  .in h2 { font-size: 84px; color: var(--accent); line-height: 1.2; }
+  .in .body { flex: 1; display: flex; flex-direction: column; margin-top: 40px; }
+  .in .item, .in .pair { flex: 1; }
+  .in .item { grid-template-columns: 220px 1fr; }
+  .in .item p { font-size: 44px; }
+  .in .pill { font-size: 42px; padding: 14px 34px; }
+  .pn { position: absolute; right: 56px; top: 44px; font-size: 28px; color: var(--muted); font-weight: 700; letter-spacing: .08em; }
+
+  /* 封面 */
+  .cover .sheet { padding: 0; }
+  .cover .tape { left: 50%; top: -26px; transform: translateX(-50%) rotate(-3deg); }
+  .cover .ruled { position: absolute; inset: 0; }
+  .cover .in { align-items: flex-start; justify-content: center; padding: 72px 76px; }
+  .cover .big .line { display: block; white-space: nowrap; }
+  .cover .big { margin-top: 24px; }
+  .cover .sub { margin-top: 64px; font-family: var(--font-body); font-weight: 700; font-size: 52px; }
+  .cover .tag { position: absolute; left: 76px; bottom: 96px; }
+
+  /* 对比页 */
+  .pair { display: flex; flex-direction: column; justify-content: center; padding: 30px 0; border-top: 3px solid var(--line); }
+  .pair:first-child { border-top: 0; }
+  .pair .a { font-size: 38px; color: var(--muted); text-decoration: line-through; text-decoration-thickness: 3px; }
+  .pair .b { margin-top: 18px; font-size: 52px; font-weight: 700; color: var(--accent-2); line-height: 1.35; }
+  .pair .a::before, .pair .b::before { display: inline-block; width: 1.5em; font-size: .8em; }
+  .vs { align-self: flex-start; margin-bottom: 20px; }
+
+  /* 结尾页 */
+  .sum { align-self: flex-start; margin-bottom: 20px; }
+</style></head>
+<body data-size="xhs">
+
+  <section class="page cover">
+    <div class="sheet fold">
+      <div class="ruled"></div>
+      <div class="tape"></div>
+      <div class="in">
+        <h1 class="big">
+          <span class="line">周报写成</span>
+          <span class="line">流水账？</span>
+        </h1>
+        <p class="sub"><span class="wave">三句话让老板看到你的价值</span></p>
+        <span class="tag">职场干货</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="sheet">
+      <div class="in">
+        <h2>周报只写四件事</h2>
+        <div class="body">
+          <div class="item"><span class="pill">结果</span><p>这周完成了什么，用数字说话</p></div>
+          <div class="item"><span class="pill">问题</span><p>卡在哪里，需要谁来帮忙</p></div>
+          <div class="item"><span class="pill">计划</span><p>下周最重要的一件事</p></div>
+          <div class="item"><span class="pill">风险</span><p>可能延期的事，提前说</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="sheet">
+      <div class="in">
+        <h2>同一件事，换种写法</h2>
+        <div class="body">
+          <div class="pair"><p class="a">参加了需求评审</p><p class="b">评审通过，下周开工</p></div>
+          <div class="pair"><p class="a">处理了一些线上问题</p><p class="b">修复 3 个故障，无复发</p></div>
+          <div class="pair"><p class="a">继续推进接口联调</p><p class="b">联调完成 80%，周三收尾</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="sheet">
+      <div class="in">
+        <h2>发之前自查三件事</h2>
+        <div class="body">
+          <div class="item"><span class="pill yellow">数字</span><p>结果能不能用数字说</p></div>
+          <div class="item"><span class="pill yellow">决策</span><p>有没有需要老板拍板的事</p></div>
+          <div class="item"><span class="pill yellow">篇幅</span><p>一屏能不能看完</p></div>
+          <p class="sum" style="margin-top:48px">周报是给老板的一份结果报告</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body></html>
