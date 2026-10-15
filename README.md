@@ -22,10 +22,10 @@
 
 模板和样式：
 1. 没有固定模板，每次由 AI 根据内容现场设计版面
-2. 风格有三套：`clean` 干净商务，`notebook` 手帐笔记，`editorial` 杂志画报。不指定时 AI 按内容挑
+2. 风格有五套：`clean` 干净商务，`notebook` 手帐笔记，`editorial` 杂志画报，`cream-note` 奶油便签，`blue-paper` 蓝纸大标题。不指定时 AI 按内容挑
 3. 尺寸：小红书 3:4，抖音图文 9:16 或 3:4，TikTok 9:16，X 横图 16:9 或竖图 4:5
 4. 语言：中文、日文、韩文、英文，以及法语、西语、德语等，AI 会按内容语言自动选字体
-5. 字体：默认使用在线字体，渲染时需要联网。AI 会优先用你电脑上已有的合适字体。想用自己的字体，放进 `fonts/` 目录，文件名就是字体名
+5. 字体：默认使用在线字体，渲染时需要联网。`fonts.json` 是推荐字体的候选清单，分在线、系统自带、需自己下载三类，写明了每款适合什么内容；AI 会按内容和风格从中挑，也会用你电脑上已有的合适字体。想用自己的字体，放进 `fonts/` 目录，文件名就是字体名
 
 <p>
   <img src="docs/images/xhs-notebook.png" width="49%">
@@ -34,6 +34,10 @@
 <p>
   <img src="docs/images/xhs-editorial.png" width="49%">
   <img src="docs/images/tiktok.png" width="24%">
+</p>
+<p>
+  <img src="docs/images/xhs-cream-note.png" width="49%">
+  <img src="docs/images/xhs-blue-paper.png" width="49%">
 </p>
 
 ## 快速开始

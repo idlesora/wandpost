@@ -55,8 +55,10 @@ HTML 约定：`<body data-size="xhs">`，每页一个 `<section class="page">`�
    - 间距：`--pad` `--radius`
 3. 改文件顶部的注释，写清这套风格的气质、适合什么内容、该做和不该做什么。AI 动手前会读这段注释，它对出图效果的影响不比变量小。
 4. 字体可以在文件开头用 `@import` 引入在线字体，也可以用 `@font-face` 加载放在仓库里的字体文件。用系统字体时要写好后备字体，否则别人电脑上渲染出来的效果会不一样。
-5. 多语言：主题要按 `<html lang>` 切换字体。在文件末尾为 `ja` `ko` 各写一段 `:root:where(:lang(ja)) { --font-head: …; --font-body: … }`，拉丁字母语言（法语、西语、德语等）用的字体如果不支持大写重音字母（É À），也要单独写一段。用 `:where()` 是为了让帖子自己的 `<style>` 还能覆盖它。参考现有三个主题的末尾。
+5. 多语言：主题要按 `<html lang>` 切换字体。在文件末尾为 `ja` `ko` 各写一段 `:root:where(:lang(ja)) { --font-head: …; --font-body: … }`，拉丁字母语言（法语、西语、德语等）用的字体如果不支持大写重音字母（É À），也要单独写一段。用 `:where()` 是为了让帖子自己的 `<style>` 还能覆盖它。参考现有主题的末尾。
 6. 在 `CLAUDE.md` 的风格列表和 README 里各加一行。
+
+主题里除了变量，还可以带一组可复用的装饰类，比如 `cream-note` 的 `.mark` `.circle` `.sticker` `.pill` `.item`，`blue-paper` 的 `.sheet` `.big` `.wave` `.tag` `.pill` `.item`。写在主题文件里，帖子的 HTML 直接用，不要放进 `base.css`。`examples/cream-note/` 和 `examples/blue-paper/` 是这两套主题的用法示例。
 
 品牌专属的私有风格，建议 fork 之后放在自己的仓库里。
 
@@ -86,10 +88,10 @@ HTML 约定：`<body data-size="xhs">`，每页一个 `<section class="page">`�
 项目没有单元测试。改了 `render.mjs`、`base.css` 或主题之后，用示例回归一遍：
 
 ```bash
-node render.mjs examples/reading-tips/*.html
+node render.mjs examples/*/*.html
 ```
 
-确认没有新增警告，再打开 `examples/reading-tips/out/*-sheet.png`，和 `docs/images/` 里的效果图比对。效果图需要更新时，从 `out/` 复制过去。
+确认没有新增警告，再打开 `examples/*/out/*-sheet.png`，和 `docs/images/` 里的效果图比对。效果图需要更新时，从 `out/` 复制过去。
 
 ## 贡献示例
 
@@ -107,6 +109,8 @@ node render.mjs examples/reading-tips/*.html
 
 ### 推荐字体清单
 
-`fonts.json` 列出推荐的字体，按语言分 `zh` `ja` `ko` `en` 四组，法语、西语、德语等拉丁字母语言用 `en` 组。每一项有 `family`（CSS 名）、`probe`（系统里可能用的别名）、`stack`（带后备字体的完整字体栈）、`themes`（适合的风格）、`role` `vibe`（用途和气质）、`get`（下载地址）。
+`fonts.json` 是推荐字体的候选清单，按语言分 `zh` `ja` `ko` `en` 四组，法语、西语、德语等拉丁字母语言用 `en` 组。每一项有 `family`（CSS 名）、`label`（中文名）、`role` `vibe`（用途和气质）、`kind`（来源）、`use`（什么内容、什么位置适合用）、`themes`（适合的风格）、`probe`（系统里可能用的别名）、`stack`（带后备字体的完整字体栈）、`get`（下载或官网地址）。
 
-`node fonts.mjs` 在 Chromium 里用 canvas 量同一段文字的宽度，和后备字体比较，来判断每款字体能不能用，所以结果和渲染时的实际情况一致。加 `--json` 输出 JSON。AI 排版前会跑它，有可用的推荐字体就优先用，没有就保持主题默认，见 `CLAUDE.md` 的"字体"一节。新增推荐字体只需要往 `fonts.json` 加一项。
+`kind` 有三种：`online` 是 Google Fonts、jsDelivr 上的在线字体，多一个 `import`（样式表地址），渲染时联网就能用；`system` 是操作系统自带，多一个 `platform`，只在对应系统上有，`stack` 必须带后备字体；`download` 是要自己下载安装或放进 `fonts/` 的字体。新增在线字体时，先用 `curl` 确认 `import` 地址能返回 200，并确认字重参数是这款字体真有的，否则 Google Fonts 会整条请求失败。
+
+`node fonts.mjs` 在 Chromium 里用 canvas 量同一段文字的宽度，和后备字体比较，来判断每款字体能不能用，所以本机、`fonts/`、系统里的字体结果和渲染时的实际情况一致。`kind` 是 `online` 的字体不在本机，`fonts.mjs` 直接按可用处理，标 `[在线，需联网]` 并列出 `@import`。加 `--json` 输出 JSON。AI 排版前会跑它，按 `use` 和风格从可用的候选里挑合适的，没有合适的就保持主题默认，见 `CLAUDE.md` 的"字体"一节。新增推荐字体只需要往 `fonts.json` 加一项。
