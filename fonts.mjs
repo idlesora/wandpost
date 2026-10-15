@@ -4,6 +4,7 @@
 // 用法：node fonts.mjs            看哪些推荐字体可用，以及可以直接抄的 CSS 字体栈
 //       node fonts.mjs --json     输出 JSON
 //
+// 清单里每一项有 kind：online 在线字体（联网即可，用 import 引入）、system 系统自带、download 需要自己装。
 // 判断方法：在 Chromium 里用 canvas 量同一段文字的宽度，和后备字体对比，宽度不同说明这款字体存在。
 // 所以结果就是渲染时真正能用到的字体，系统字体和 fonts/ 目录里的都算。
 
@@ -43,7 +44,10 @@ const result = {};
 for (const [lang, list] of groups) {
   result[lang] = list.map((f) => {
     const hit = [f.family, ...f.probe].find((n) => found.includes(n));
-    return { ...f, available: Boolean(hit), source: !hit ? null : localNames.has(hit) ? 'fonts/' : '系统' };
+    if (hit) return { ...f, available: true, source: localNames.has(hit) ? 'fonts/' : '系统' };
+    // 在线字体不在本机，但渲染时联网就能加载，所以也算可用
+    if (f.kind === 'online') return { ...f, available: true, source: '在线，需联网' };
+    return { ...f, available: false, source: null };
   });
 }
 const extra = local.filter((f) => !Object.values(result).flat().some((r) => r.family === f.family));
@@ -56,7 +60,9 @@ if (asJson) {
     console.log(`\n${title[lang] ?? lang}`);
     for (const f of list) {
       console.log(`${f.available ? '✓' : '✗'} ${f.label}（${f.role}，${f.vibe}；适合 ${f.themes.join('/')}）${f.available ? ` [${f.source}]` : ` 获取：${f.get}`}`);
+      if (f.use) console.log(`    用法：${f.use}`);
       if (f.available) console.log(`    ${f.stack}`);
+      if (f.available && f.source === '在线，需联网') console.log(`    @import url("${f.import}");`);
     }
   }
   if (extra.length) console.log(`\nfonts/ 里的其他字体：${extra.map((f) => f.family).join('、')}（文件名就是 font-family 名）`);

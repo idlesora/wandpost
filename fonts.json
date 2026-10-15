@@ -1,19 +1,23 @@
 {
-  "_说明": "推荐字体清单。family 是 CSS 里的名字；probe 是检测时额外尝试的别名（系统里可能叫另一个名字）；stack 是可以直接抄进 CSS 的完整字体栈，已带后备字体；themes 是这款字体适合的风格；get 是下载地址。node fonts.mjs 会检测用户的电脑上有哪些。 分组按语言：zh 中文、ja 日文、ko 韩文、en 英文。法语、西班牙语、德语等拉丁字母语言用 en 组，这些字体都支持重音符号。",
+  "_说明": "推荐字体清单，排版时按语言、风格和 use 挑选，不是必须用。每一项：family 是 CSS 里的名字；kind 是来源：online（Google Fonts、jsDelivr 上的在线字体，渲染时联网就能用，用 import 引入）、system（操作系统自带，只在对应系统上有，platform 写明，没有就退回 stack 里的后备字体）、download（要自己下载装好，或放进 fonts/，没有就保持主题默认）；use 写什么内容和位置适合用它；themes 是适合的风格；probe 是检测时额外尝试的别名；stack 是可以直接抄进 CSS 的完整字体栈，已带后备字体；import 是在线字体的样式表地址；get 是下载或官网地址。node fonts.mjs 会列出这台电脑上能用的。分组按语言：zh 中文、ja 日文、ko 韩文、en 英文。法语、西班牙语、德语等拉丁字母语言用 en 组，这些字体都支持重音符号。",
   "zh": [
     {
       "family": "LXGW WenKai",
       "label": "霞鹜文楷",
       "role": "标题+正文",
       "vibe": "手写楷体，亲切",
+      "kind": "online",
+      "use": "手账、读书笔记、情绪类的正文和标题。楷体亲切，笔画偏细，做标题要加粗或放大。",
       "themes": [
-        "notebook"
+        "notebook",
+        "cream-note"
       ],
       "probe": [
         "霞鹜文楷",
         "LXGW WenKai GB"
       ],
       "stack": "\"LXGW WenKai\", \"Kaiti SC\", \"KaiTi\", serif",
+      "import": "https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css",
       "get": "https://github.com/lxgw/LxgwWenKai"
     },
     {
@@ -21,6 +25,8 @@
       "label": "思源宋体",
       "role": "标题+正文",
       "vibe": "典雅，杂志感",
+      "kind": "online",
+      "use": "观点、金句、故事类的杂志风。大标题用 700～900 字重。",
       "themes": [
         "editorial"
       ],
@@ -29,6 +35,7 @@
         "思源宋体"
       ],
       "stack": "\"Source Han Serif SC\", \"Noto Serif SC\", \"Songti SC\", serif",
+      "import": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=block",
       "get": "https://github.com/adobe-fonts/source-han-serif"
     },
     {
@@ -36,14 +43,19 @@
       "label": "思源黑体",
       "role": "标题+正文",
       "vibe": "中性干净，百搭",
+      "kind": "online",
+      "use": "任何风格的保底黑体。900 字重做封面大标题最稳，缺什么字体时都能退回它。",
       "themes": [
-        "clean"
+        "clean",
+        "blue-paper",
+        "cream-note"
       ],
       "probe": [
         "Noto Sans SC",
         "思源黑体"
       ],
       "stack": "\"Source Han Sans SC\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=block",
       "get": "https://github.com/adobe-fonts/source-han-sans"
     },
     {
@@ -51,6 +63,8 @@
       "label": "得意黑",
       "role": "标题",
       "vibe": "斜体个性，封面抓眼",
+      "kind": "download",
+      "use": "封面和短标题，斜体有冲击力。不适合正文和长句。",
       "themes": [
         "clean",
         "notebook"
@@ -63,10 +77,47 @@
       "get": "https://github.com/atelier-anchor/smiley-sans"
     },
     {
+      "family": "ZCOOL QingKe HuangYou",
+      "label": "站酷庆科黄油体",
+      "role": "标题",
+      "vibe": "方正圆角，偏科技感的粗体，封面大标题",
+      "kind": "online",
+      "use": "封面大标题，方块感强，8 个字以内好看。偏科技感，生活和情绪类内容不合适。",
+      "themes": [
+        "blue-paper"
+      ],
+      "probe": [
+        "站酷庆科黄油体"
+      ],
+      "stack": "\"ZCOOL QingKe HuangYou\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=block",
+      "get": "https://fonts.google.com/specimen/ZCOOL+QingKe+HuangYou"
+    },
+    {
+      "family": "ZCOOL KuaiLe",
+      "label": "站酷快乐体",
+      "role": "标题",
+      "vibe": "活泼俏皮，笔画带棱角的手写粗体",
+      "kind": "online",
+      "use": "轻松活泼的封面标题和贴纸文字，笔画粗。不用来排正文。",
+      "themes": [
+        "cream-note",
+        "notebook"
+      ],
+      "probe": [
+        "站酷快乐体"
+      ],
+      "stack": "\"ZCOOL KuaiLe\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=block",
+      "get": "https://fonts.google.com/specimen/ZCOOL+KuaiLe"
+    },
+    {
       "family": "Alibaba PuHuiTi 3.0",
       "label": "阿里巴巴普惠体",
       "role": "标题+正文",
       "vibe": "现代商务，字重齐全",
+      "kind": "download",
+      "use": "商务、数据类内容的标题和正文，字重齐全。",
       "themes": [
         "clean"
       ],
@@ -83,6 +134,8 @@
       "label": "鸿蒙黑体",
       "role": "标题+正文",
       "vibe": "清爽，数字好看",
+      "kind": "download",
+      "use": "数据、清单类内容，数字好看。",
       "themes": [
         "clean"
       ],
@@ -97,6 +150,8 @@
       "label": "小米 MiSans",
       "role": "标题+正文",
       "vibe": "现代，圆润",
+      "kind": "download",
+      "use": "现代、圆润的商务和科技类内容。",
       "themes": [
         "clean"
       ],
@@ -111,6 +166,9 @@
       "label": "苹方",
       "role": "标题+正文",
       "vibe": "macOS 系统黑体",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "macOS 上 clean 风格的标题和正文，Semibold 做小标题。",
       "themes": [
         "clean"
       ],
@@ -125,6 +183,9 @@
       "label": "宋体-简",
       "role": "标题+正文",
       "vibe": "macOS 系统宋体",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "macOS 上 editorial 的后备宋体。",
       "themes": [
         "editorial"
       ],
@@ -139,6 +200,9 @@
       "label": "楷体-简",
       "role": "标题+正文",
       "vibe": "macOS 系统楷体",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "macOS 上手账风的后备楷体。",
       "themes": [
         "notebook"
       ],
@@ -154,6 +218,9 @@
       "label": "微软雅黑",
       "role": "标题+正文",
       "vibe": "Windows 系统黑体",
+      "kind": "system",
+      "platform": "Windows",
+      "use": "Windows 上 clean 风格的后备黑体。",
       "themes": [
         "clean"
       ],
@@ -162,6 +229,177 @@
       ],
       "stack": "\"Microsoft YaHei\", \"PingFang SC\", sans-serif",
       "get": "Windows 自带"
+    },
+    {
+      "family": "Zen Maru Gothic",
+      "label": "Zen Maru Gothic（圆头粗黑）",
+      "role": "标题",
+      "vibe": "圆头粗黑，亲切",
+      "kind": "online",
+      "use": "圆头粗黑，气质接近小红书常见的粗圆标题。是日文字体，简体中文里少数字形没有，会悄悄换成后备字体，用前要逐字看一遍。",
+      "themes": [
+        "cream-note",
+        "notebook"
+      ],
+      "probe": [],
+      "stack": "\"Zen Maru Gothic\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=block",
+      "get": "https://fonts.google.com/specimen/Zen+Maru+Gothic"
+    },
+    {
+      "family": "Ma Shan Zheng",
+      "label": "马善政楷书",
+      "role": "标题",
+      "vibe": "毛笔楷书，国风",
+      "kind": "online",
+      "use": "毛笔楷书，国风、书法感的标题或金句。一页只用一处，不排正文。",
+      "themes": [
+        "editorial"
+      ],
+      "probe": [
+        "马善政"
+      ],
+      "stack": "\"Ma Shan Zheng\", \"Kaiti SC\", serif",
+      "import": "https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=block",
+      "get": "https://fonts.google.com/specimen/Ma+Shan+Zheng"
+    },
+    {
+      "family": "Zhi Mang Xing",
+      "label": "志莽行书",
+      "role": "标题",
+      "vibe": "行书，气势强",
+      "kind": "online",
+      "use": "行书，气势强，适合短金句和读书、历史类标题。",
+      "themes": [
+        "editorial"
+      ],
+      "probe": [
+        "志莽行书"
+      ],
+      "stack": "\"Zhi Mang Xing\", \"Kaiti SC\", serif",
+      "import": "https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=block",
+      "get": "https://fonts.google.com/specimen/Zhi+Mang+Xing"
+    },
+    {
+      "family": "Long Cang",
+      "label": "龙藏体",
+      "role": "手写点缀",
+      "vibe": "细劲行草，批注感",
+      "kind": "online",
+      "use": "细劲的行草，适合批注、签名式点缀。笔画细，不做大标题。",
+      "themes": [
+        "notebook"
+      ],
+      "probe": [
+        "龙藏体"
+      ],
+      "stack": "\"Long Cang\", \"Kaiti SC\", cursive",
+      "import": "https://fonts.googleapis.com/css2?family=Long+Cang&display=block",
+      "get": "https://fonts.google.com/specimen/Long+Cang"
+    },
+    {
+      "family": "Yuanti SC",
+      "label": "圆体-简",
+      "role": "标题",
+      "vibe": "圆头粗黑，亲切有分量",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "圆头粗黑，亲切又有分量，适合 cream-note、手账风的封面大标题和小标题。用 font-weight:700。",
+      "themes": [
+        "cream-note",
+        "notebook"
+      ],
+      "probe": [
+        "圆体-简"
+      ],
+      "stack": "\"Yuanti SC\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Hannotate SC",
+      "label": "手札体-简",
+      "role": "标题",
+      "vibe": "马克笔手写，手账感",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "马克笔手写，适合手账批注、小标题、标签。用 font-weight:700；做大标题略单薄。",
+      "themes": [
+        "notebook",
+        "cream-note"
+      ],
+      "probe": [
+        "手札体-简"
+      ],
+      "stack": "\"Hannotate SC\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "HanziPen SC",
+      "label": "翩翩体-简",
+      "role": "标题",
+      "vibe": "钢笔手写，细劲",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "钢笔手写，适合批注和引语。笔画细，不做大标题。用 font-weight:700。",
+      "themes": [
+        "notebook"
+      ],
+      "probe": [
+        "翩翩体-简"
+      ],
+      "stack": "\"HanziPen SC\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Wawati SC",
+      "label": "娃娃体-简",
+      "role": "标题",
+      "vibe": "俏皮，萌系",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "俏皮的娃娃体，适合萌系、儿童类的点缀。笔画细，标题要放大。",
+      "themes": [
+        "notebook"
+      ],
+      "probe": [
+        "娃娃体-简"
+      ],
+      "stack": "\"Wawati SC\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Yuppy SC",
+      "label": "雅痞-简",
+      "role": "标题",
+      "vibe": "随性手写黑",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "随性的手写黑，适合生活、吐槽类的标题。",
+      "themes": [
+        "notebook"
+      ],
+      "probe": [
+        "雅痞-简"
+      ],
+      "stack": "\"Yuppy SC\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "get": "macOS 自带"
+    },
+    {
+      "family": "Baoli SC",
+      "label": "报隶-简",
+      "role": "标题",
+      "vibe": "粗隶书，复古",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "粗隶书，适合国风、复古、传统文化类的大标题。",
+      "themes": [
+        "editorial"
+      ],
+      "probe": [
+        "报隶-简"
+      ],
+      "stack": "\"Baoli SC\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+      "get": "macOS 自带"
     }
   ],
   "ja": [
@@ -170,6 +408,8 @@
       "label": "Noto Sans JP（思源黑体）",
       "role": "标题+正文",
       "vibe": "中性干净",
+      "kind": "online",
+      "use": "日文内容的保底黑体。",
       "themes": [
         "clean"
       ],
@@ -177,6 +417,7 @@
         "Source Han Sans JP"
       ],
       "stack": "\"Inter\", \"Noto Sans JP\", \"Hiragino Sans\", \"Yu Gothic\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=block",
       "get": "https://fonts.google.com/noto/specimen/Noto+Sans+JP"
     },
     {
@@ -184,6 +425,8 @@
       "label": "Noto Serif JP（思源明朝）",
       "role": "标题+正文",
       "vibe": "典雅，杂志感",
+      "kind": "online",
+      "use": "日文的杂志风内容。",
       "themes": [
         "editorial"
       ],
@@ -191,6 +434,7 @@
         "Source Han Serif JP"
       ],
       "stack": "\"Noto Serif JP\", \"Hiragino Mincho ProN\", \"Yu Mincho\", serif",
+      "import": "https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&display=block",
       "get": "https://fonts.google.com/noto/specimen/Noto+Serif+JP"
     },
     {
@@ -198,11 +442,14 @@
       "label": "Klee One",
       "role": "标题+正文",
       "vibe": "手写笔触，教科书楷体风",
+      "kind": "online",
+      "use": "日文手账、读书笔记；也是 notebook 里拉丁字母的首选。",
       "themes": [
         "notebook"
       ],
       "probe": [],
       "stack": "\"Klee One\", \"Hiragino Maru Gothic ProN\", \"Yu Gothic\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=block",
       "get": "https://fonts.google.com/specimen/Klee+One"
     },
     {
@@ -210,12 +457,15 @@
       "label": "Zen Maru Gothic",
       "role": "标题+正文",
       "vibe": "圆润友好",
+      "kind": "online",
+      "use": "圆头粗黑，气质接近小红书常见的粗圆标题。是日文字体，简体中文里少数字形没有，会悄悄换成后备字体，用前要逐字看一遍。",
       "themes": [
         "clean",
         "notebook"
       ],
       "probe": [],
       "stack": "\"Zen Maru Gothic\", \"Hiragino Maru Gothic ProN\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=block",
       "get": "https://fonts.google.com/specimen/Zen+Maru+Gothic"
     },
     {
@@ -223,6 +473,9 @@
       "label": "ヒラギノ角ゴ",
       "role": "标题+正文",
       "vibe": "macOS 系统黑体",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "macOS 上日文 clean 风格。",
       "themes": [
         "clean"
       ],
@@ -237,6 +490,9 @@
       "label": "ヒラギノ明朝",
       "role": "标题+正文",
       "vibe": "macOS 系统明朝",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "macOS 上日文 editorial 风格。",
       "themes": [
         "editorial"
       ],
@@ -251,6 +507,9 @@
       "label": "游ゴシック",
       "role": "标题+正文",
       "vibe": "Windows、macOS 系统黑体",
+      "kind": "system",
+      "platform": "macOS、Windows",
+      "use": "Windows、macOS 上日文的后备黑体。",
       "themes": [
         "clean"
       ],
@@ -267,6 +526,8 @@
       "label": "Pretendard",
       "role": "标题+正文",
       "vibe": "韩国常用，现代中性",
+      "kind": "online",
+      "use": "韩文内容的首选，现代中性，字重齐全。",
       "themes": [
         "clean"
       ],
@@ -274,6 +535,7 @@
         "Pretendard Variable"
       ],
       "stack": "\"Pretendard\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+      "import": "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css",
       "get": "https://github.com/orioncactus/pretendard"
     },
     {
@@ -281,6 +543,8 @@
       "label": "Noto Sans KR",
       "role": "标题+正文",
       "vibe": "中性干净",
+      "kind": "online",
+      "use": "韩文内容的保底黑体。",
       "themes": [
         "clean"
       ],
@@ -288,6 +552,7 @@
         "Source Han Sans K"
       ],
       "stack": "\"Inter\", \"Noto Sans KR\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=block",
       "get": "https://fonts.google.com/noto/specimen/Noto+Sans+KR"
     },
     {
@@ -295,11 +560,14 @@
       "label": "Noto Serif KR",
       "role": "标题+正文",
       "vibe": "典雅，杂志感",
+      "kind": "online",
+      "use": "韩文的杂志风内容。",
       "themes": [
         "editorial"
       ],
       "probe": [],
       "stack": "\"Noto Serif KR\", \"AppleMyungjo\", \"Batang\", serif",
+      "import": "https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&display=block",
       "get": "https://fonts.google.com/noto/specimen/Noto+Serif+KR"
     },
     {
@@ -307,11 +575,14 @@
       "label": "Gaegu",
       "role": "标题",
       "vibe": "手写，可爱（拉丁字母不分大小写，英文请配 Klee One）",
+      "kind": "online",
+      "use": "韩文手账、可爱风的标题，只用在短句。",
       "themes": [
         "notebook"
       ],
       "probe": [],
       "stack": "\"Klee One\", \"Gaegu\", \"Apple SD Gothic Neo\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=block",
       "get": "https://fonts.google.com/specimen/Gaegu"
     },
     {
@@ -319,6 +590,9 @@
       "label": "Apple SD 산돌고딕 Neo",
       "role": "标题+正文",
       "vibe": "macOS 系统黑体",
+      "kind": "system",
+      "platform": "macOS",
+      "use": "macOS 上韩文 clean 风格。",
       "themes": [
         "clean"
       ],
@@ -333,6 +607,9 @@
       "label": "맑은 고딕",
       "role": "标题+正文",
       "vibe": "Windows 系统黑体",
+      "kind": "system",
+      "platform": "Windows",
+      "use": "Windows 上韩文的后备黑体。",
       "themes": [
         "clean"
       ],
@@ -349,6 +626,8 @@
       "label": "Inter",
       "role": "标题+正文",
       "vibe": "中性现代，数字清晰",
+      "kind": "online",
+      "use": "英文、法文等的通用正文和标题，数字清晰。",
       "themes": [
         "clean"
       ],
@@ -356,6 +635,7 @@
         "Inter Variable"
       ],
       "stack": "\"Inter\", \"Helvetica Neue\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=block",
       "get": "https://rsms.me/inter/"
     },
     {
@@ -363,11 +643,14 @@
       "label": "Playfair Display",
       "role": "标题",
       "vibe": "高对比衬线，杂志大标题",
+      "kind": "online",
+      "use": "英文杂志风大标题，高对比衬线。",
       "themes": [
         "editorial"
       ],
       "probe": [],
       "stack": "\"Playfair Display\", Georgia, serif",
+      "import": "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=block",
       "get": "https://fonts.google.com/specimen/Playfair+Display"
     },
     {
@@ -375,11 +658,14 @@
       "label": "Space Grotesk",
       "role": "标题+数字",
       "vibe": "几何感，科技",
+      "kind": "online",
+      "use": "科技、数据类的英文标题和数字。",
       "themes": [
         "clean"
       ],
       "probe": [],
       "stack": "\"Space Grotesk\", \"Helvetica Neue\", sans-serif",
+      "import": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=block",
       "get": "https://fonts.google.com/specimen/Space+Grotesk"
     },
     {
@@ -387,12 +673,15 @@
       "label": "DM Serif Display",
       "role": "标题",
       "vibe": "圆润衬线，温暖",
+      "kind": "online",
+      "use": "温暖的英文衬线标题，editorial 和手账都合适。",
       "themes": [
         "editorial",
         "notebook"
       ],
       "probe": [],
       "stack": "\"DM Serif Display\", Georgia, serif",
+      "import": "https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=block",
       "get": "https://fonts.google.com/specimen/DM+Serif+Display"
     },
     {
@@ -400,11 +689,14 @@
       "label": "Caveat",
       "role": "手写点缀",
       "vibe": "英文手写，批注感",
+      "kind": "online",
+      "use": "英文手写点缀，用在批注，不做大段文字。",
       "themes": [
         "notebook"
       ],
       "probe": [],
       "stack": "\"Caveat\", cursive",
+      "import": "https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=block",
       "get": "https://fonts.google.com/specimen/Caveat"
     },
     {
@@ -412,11 +704,14 @@
       "label": "JetBrains Mono",
       "role": "代码、数字",
       "vibe": "等宽，技术内容",
+      "kind": "online",
+      "use": "代码、命令和数字。",
       "themes": [
         "clean"
       ],
       "probe": [],
       "stack": "\"JetBrains Mono\", Menlo, monospace",
+      "import": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=block",
       "get": "https://www.jetbrains.com/lp/mono/"
     }
   ]
